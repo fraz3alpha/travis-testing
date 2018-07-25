@@ -57,10 +57,10 @@ touch .nojekyll
 # Setup git to push to the staging repo
 git init
 # Add the target remote
-git remote add staging https://${RUNNING_CHALLENGES_GITHUB_TOKEN}@github.com/fraz3alpha/running-challenges-staging.git
+git remote add staging https://${GH_PAGES_GITHUB_TOKEN}@github.com/fraz3alpha/travis-testing.git
 # Create a new branch, and commit all the code
 git checkout -b gh-pages
 git add -A
 git commit -m 'Travis build for staging'
 git log -1
-git push --force staging gh-pages
+git push --force staging gh-pages-staging

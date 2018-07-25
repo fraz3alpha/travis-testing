@@ -51,10 +51,10 @@ touch .nojekyll
 # Setup git to push to the staging repo
 git init
 # Add the target remote
-git remote add production https://${RUNNING_CHALLENGES_GITHUB_TOKEN}@github.com/fraz3alpha/running-challenges.git
+git remote add production https://${GH_PAGES_GITHUB_TOKEN}@github.com/fraz3alpha/travis-testing.git
 # Create a new branch, and commit all the code
 git checkout -b gh-pages
 git add -A
 git commit -m 'Travis build for production'
 git log -1
-git push --force production gh-pages
+git push --force production gh-pages-production
