@@ -24,6 +24,15 @@ jobs:
       script:
          - './build/extension-chrome/build.sh'
 
+    - language: node_js
+      node_js: node
+
+      before_script:
+       - chmod +x ./build/extension-firefox/build.sh
+       - npm install -g web-ext
+
+      script:
+         - './build/extension-firefox/build.sh'
 
 # branch whitelist, only for GitHub Pages - we push raw code to master,
 # the build code goes to gh-pages
