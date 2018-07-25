@@ -14,6 +14,15 @@ jobs:
          - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./build/website/build-staging.sh; fi'
          - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/website/build.sh; fi'
 
+    - language: javascript
+
+      before_script:
+       - npm install -g web-ext
+
+      script:
+         - './build/extension-chrome/build.sh'
+
+
 # branch whitelist, only for GitHub Pages - we push raw code to master,
 # the build code goes to gh-pages
 branches:
