@@ -53,7 +53,7 @@ git init
 # Add the target remote
 git remote add production https://${GH_PAGES_GITHUB_TOKEN}@github.com/fraz3alpha/travis-testing.git
 # Create a new branch, and commit all the code
-git checkout -b gh-pages
+git checkout -b gh-pages-production
 git add -A
 git commit -m 'Travis build for production'
 git log -1

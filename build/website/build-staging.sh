@@ -59,7 +59,7 @@ git init
 # Add the target remote
 git remote add staging https://${GH_PAGES_GITHUB_TOKEN}@github.com/fraz3alpha/travis-testing.git
 # Create a new branch, and commit all the code
-git checkout -b gh-pages
+git checkout -b gh-pages-staging
 git add -A
 git commit -m 'Travis build for staging'
 git log -1
