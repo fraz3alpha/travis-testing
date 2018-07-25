@@ -4,6 +4,7 @@
 jobs:
   include:
     - stage: Website
+      name: running-challenges.co.uk
       language: ruby
       rvm: 2.3.3
 
@@ -27,7 +28,8 @@ jobs:
       script:
          - './build/extension-chrome/build.sh'
 
-    - name: firefox
+    - stage: Extensions
+      name: firefox
       language: node_js
       node_js: node
 
