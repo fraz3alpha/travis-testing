@@ -1,30 +1,39 @@
 
 # based on https://jekyllrb.com/docs/continuous-integration/travis-ci/
 
-jobs:
-  include:
-    - stage: Website
-      name: running-challenges.co.uk
-      language: ruby
-      rvm: 2.3.3
 
-      before_script:
-       - chmod +x ./build/website/build.sh
-       - chmod +x ./build/website/build-staging.sh
-       - chmod +x ./build/extension-chrome/build.sh
-       - chmod +x ./build/extension-firefox/build.sh
-       - npm install -g web-ext
+language: ruby
+rvm: 2.3.3
 
-      script:
-         - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./build/website/build-staging.sh; fi'
-         - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/website/build.sh; fi'
-         - './build/extension-chrome/build.sh'
-         - './build/extension-firefox/build.sh'
+before_script:
+ - chmod +x ./build/website/build.sh
+ - chmod +x ./build/website/build-staging.sh
+ - chmod +x ./build/extension-chrome/build.sh
+ - chmod +x ./build/extension-firefox/build.sh
+ - npm install -g web-ext
+
+script:
+   # - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./build/website/build-staging.sh; fi'
+   # - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/website/build.sh; fi'
+   - './build/extension-chrome/build.sh'
+   - './build/extension-firefox/build.sh'
 
 # branch whitelist, only for GitHub Pages - we push raw code to master,
 # the build code goes to gh-pages
 branches:
   only:
   - master
+
+deploy:
+  provider: releases
+  api_key:
+    secure: er8ZX95bSo7dPDJSYnltMbnhPiTjrUZqw9z/aMo4onGblanoFPug5dvdFWukJy8EYu34o/6XwuApvKyWt29j2J8qkCp8dL1SspCg0dhrrt/bgVuVrWXpKQUj946Hjtn3VU2o81macpCeWE9vg5tRjBaLRtuAeKgzrIfgcS4DymM26n0mL0hTECUTDQHHCPSVycTJ/xDjwxCItwSmeKP3/13G
+  file_glob: true
+  file:
+    - browser-extensions/chrome/build/*.zip
+    - browser-extensions/firefox/build/web-ext-artifacts/*.zip
+  skip_cleanup: true
+  on:
+    tags: true
 
 sudo: false # route your build to the container-based infrastructure for a faster build
