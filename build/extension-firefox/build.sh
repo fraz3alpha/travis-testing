@@ -34,4 +34,5 @@ web-ext lint
 web-ext build
 
 # Rename the output file with the firefox- prefix
-rename 's/^/firefox-/' web-ext-artifacts/*.zip
+cd web-ext-artifacts
+rename 's/^/firefox-/' *.zip

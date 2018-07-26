@@ -28,4 +28,5 @@ web-ext lint
 web-ext build
 
 # Rename the output file with the chrome- prefix
-rename 's/^/chrome-/' web-ext-artifacts/*.zip
+cd web-ext-artifacts
+rename 's/^/chrome-/' *.zip
