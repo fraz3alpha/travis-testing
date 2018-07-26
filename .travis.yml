@@ -34,7 +34,7 @@ deploy:
     secure: er8ZX95bSo7dPDJSYnltMbnhPiTjrUZqw9z/aMo4onGblanoFPug5dvdFWukJy8EYu34o/6XwuApvKyWt29j2J8qkCp8dL1SspCg0dhrrt/bgVuVrWXpKQUj946Hjtn3VU2o81macpCeWE9vg5tRjBaLRtuAeKgzrIfgcS4DymM26n0mL0hTECUTDQHHCPSVycTJ/xDjwxCItwSmeKP3/13GTQHkHEAQKAJ5KqPUjWCTc9/Jbxty0HEKRq/B/NPK3/LlB7PdIMPsdYEiUygUIlUBqAeRVPojeNa1h0u09EtApbUPOo2N5gaxbSy1L3gkdp+smilW6RcyZxoggFx8QrkosGpPU34X4k8wXePQn5mrxK6WXRWpn9uWcCzQKQngLKURz/ktBzAzrdtz8iIkyq0gcqtJ5QF6dhPs0Xy93zqkN/GfBlM+l8XfgE63HLReaKknwDAoyusF3ebM8euTVJGVwqptRuU3m50/YJo1RbGYErL8/9MwpTXnFP2p7MS94lYQmYV4eeiQu5tkC0ZhTvjLU8EXh/9G0naLQZ4DB3NIXI4zI0nXzD5qa4v9TQNjVTCHenjLzqI7SB7FBOX7nCkL3K9ugVtYJ5YxdfkCSxuoeICx/J+WQ5ISSkMvnZg9CQqyGyaHG0TiaobzQTYBTwXMyHr/tgp1OwrLZlLR9es=
   file_glob: true
   file:
-    - browser-extensions/chrome/build/*.zip
+    - browser-extensions/chrome/build/web-ext-artifacts/*.zip
     - browser-extensions/firefox/build/web-ext-artifacts/*.zip
   skip_cleanup: true
   on:

@@ -1,3 +1,5 @@
+#!/bin/bash -xe
+
 # Create empty build directory
 export TMP_BUILD_DIR=browser-extensions/chrome/build
 rm -rf ${TMP_BUILD_DIR} && mkdir -p ${TMP_BUILD_DIR}
