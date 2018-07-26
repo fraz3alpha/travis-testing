@@ -22,7 +22,7 @@ cp -r browser-extensions/chrome/css ${TMP_BUILD_DIR}/
 
 # Replace all instances of "chrome-extension://" with "moz-extension://" for
 # Firefox compatibility in css files
-find ${TMP_BUILD_DIR}/ -type f -name "*.css" -exec sed -i "" "s/chrome-extension/moz-extension/g" {} \;
+find ${TMP_BUILD_DIR}/ -type f -name "*.css" -exec sed -i "s/chrome-extension/moz-extension/g" {} \;
 
 
 # Copy the metadata
