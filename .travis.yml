@@ -37,7 +37,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    condition: $TRAVIS_TAG =~ /^v[0-9]/
+    condition: $TRAVIS_TAG =~ ^v
     repo: fraz3alpha/travis-testing
 
 sudo: false # route your build to the container-based infrastructure for a faster build
