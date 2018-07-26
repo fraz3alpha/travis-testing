@@ -23,4 +23,9 @@ cp -r browser-extensions/chrome/manifest.json ${TMP_BUILD_DIR}/
 
 # Move into the build directory and package everything up
 cd ${TMP_BUILD_DIR}
-zip -r extension.zip js/ html/ images/ css/ manifest.json
+# zip -r extension.zip js/ html/ images/ css/ manifest.json
+web-ext lint
+web-ext build
+
+# Rename the output file with the chrome- prefix
+rename 's/^/chrome-/' web-ext-artifacts/*.zip

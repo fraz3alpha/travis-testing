@@ -32,3 +32,6 @@ cp -r browser-extensions/chrome/manifest.json.mozilla ${TMP_BUILD_DIR}/manifest.
 cd ${TMP_BUILD_DIR}
 web-ext lint
 web-ext build
+
+# Rename the output file with the firefox- prefix
+rename 's/^/firefox-/' web-ext-artifacts/*.zip
