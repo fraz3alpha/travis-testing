@@ -11,14 +11,33 @@ jobs:
       before_script:
        - chmod +x ./build/website/build.sh
        - chmod +x ./build/website/build-staging.sh
-       - chmod +x ./build/extension-chrome/build.sh
-       - chmod +x ./build/extension-firefox/build.sh
-       - npm install -g web-ext
 
       script:
          - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./build/website/build-staging.sh; fi'
          - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./build/website/build.sh; fi'
+
+    - stage: Extensions
+      name: chrome
+      language: node_js
+      node_js: node
+
+      before_script:
+       - chmod +x ./build/extension-chrome/build.sh
+       - npm install -g web-ext
+
+      script:
          - './build/extension-chrome/build.sh'
+
+    - stage: Extensions
+      name: firefox
+      language: node_js
+      node_js: node
+
+      before_script:
+       - chmod +x ./build/extension-firefox/build.sh
+       - npm install -g web-ext
+
+      script:
          - './build/extension-firefox/build.sh'
 
 # branch whitelist, only for GitHub Pages - we push raw code to master,
