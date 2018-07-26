@@ -35,5 +35,6 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+    condition: $TRAVIS_TAG =~ ^v
 
 sudo: false # route your build to the container-based infrastructure for a faster build
