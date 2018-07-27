@@ -1,8 +1,7 @@
 #!/bin/bash -xe
 
-# Default the build id variable to zero if not set - Travis should set this to
-# the Travis build number
-EXTENSION_BUILD_ID=${EXTENSION_BUILD_ID:-0}
+# Set up version variables
+source build/version.sh
 
 # Create empty build directory
 export TMP_BUILD_DIR=browser-extensions/firefox/build
@@ -34,6 +33,7 @@ cp -r browser-extensions/chrome/manifest.json.mozilla ${TMP_BUILD_DIR}/manifest.
 
 # Replace placeholders in the manifest file
 sed -i "s/REPLACE_EXTENSION_BUILD_ID/$EXTENSION_BUILD_ID/" ${TMP_BUILD_DIR}/manifest.json
+sed -i "s/REPLACE_EXTENSION_BUILD_VERSION/$EXTENSION_BUILD_VERSION/" ${TMP_BUILD_DIR}/manifest.json
 
 cat ${TMP_BUILD_DIR}/manifest.json
 
