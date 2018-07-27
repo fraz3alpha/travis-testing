@@ -1,4 +1,4 @@
-
+build/version.sh
 # based on https://jekyllrb.com/docs/continuous-integration/travis-ci/
 
 
@@ -6,8 +6,7 @@ language: ruby
 rvm: 2.3.3
 
 env:
-  - EXTENSION_BUILD_ID=$TRAVIS_BUILD_NUMBER
-  - EXTENSION_BUILD_VERSION=$TRAVIS_TAG
+  - EXTENSION_BUILD_ID=$TRAVIS_BUILD_NUMBER EXTENSION_BUILD_VERSION=$TRAVIS_TAG
 
 before_script:
  - chmod +x ./build/website/build.sh
