@@ -1,5 +1,10 @@
 #!/bin/bash -xe
 
+# Set up variables
+# Default the build id variable to zero if not set - Travis should set this to
+# the Travis build number
+EXTENSION_BUILD_ID=${EXTENSION_BUILD_ID:-0}
+
 # Create empty build directory
 export TMP_BUILD_DIR=browser-extensions/chrome/build
 rm -rf ${TMP_BUILD_DIR} && mkdir -p ${TMP_BUILD_DIR}
@@ -22,6 +27,9 @@ cp -r browser-extensions/chrome/css ${TMP_BUILD_DIR}/
 
 # Copy the metadata
 cp -r browser-extensions/chrome/manifest.json ${TMP_BUILD_DIR}/
+
+# Replace placeholders in the manifest file
+sed -i "s/REPLACE_EXTENSION_BUILD_ID/$EXTENSION_BUILD_ID/" ${TMP_BUILD_DIR}/manifest.json
 
 # Move into the build directory and package everything up
 cd ${TMP_BUILD_DIR}
