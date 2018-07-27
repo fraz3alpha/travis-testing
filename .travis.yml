@@ -1,6 +1,4 @@
-build/version.sh
-# based on https://jekyllrb.com/docs/continuous-integration/travis-ci/
-
+# Initially based on https://jekyllrb.com/docs/continuous-integration/travis-ci/
 
 language: ruby
 rvm: 2.3.3
