@@ -33,6 +33,6 @@ cd ${TMP_BUILD_DIR}
 web-ext lint
 web-ext build
 
-# Rename the output file with the firefox- prefix
-cd web-ext-artifacts
-rename 's/^/firefox-/' *.zip
+# # Rename the output file with the firefox- prefix
+# cd web-ext-artifacts
+# rename 's/^/firefox-/' *.zip

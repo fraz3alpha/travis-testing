@@ -29,6 +29,6 @@ cd ${TMP_BUILD_DIR}
 web-ext lint
 web-ext build
 
-# Rename the output file with the chrome- prefix
-cd web-ext-artifacts
-rename 's/^/chrome-/' *.zip
+# # Rename the output file with the chrome- prefix
+# cd web-ext-artifacts
+# rename 's/^/chrome-/' *.zip
