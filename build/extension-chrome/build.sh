@@ -31,6 +31,8 @@ cp -r browser-extensions/chrome/manifest.json ${TMP_BUILD_DIR}/
 # Replace placeholders in the manifest file
 sed -i "s/REPLACE_EXTENSION_BUILD_ID/$EXTENSION_BUILD_ID/" ${TMP_BUILD_DIR}/manifest.json
 
+cat ${TMP_BUILD_DIR}/manifest.json
+
 # Move into the build directory and package everything up
 cd ${TMP_BUILD_DIR}
 # zip -r extension.zip js/ html/ images/ css/ manifest.json

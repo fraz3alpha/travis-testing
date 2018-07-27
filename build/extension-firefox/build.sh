@@ -33,6 +33,9 @@ find ${TMP_BUILD_DIR}/ -type f -name "*.css" -exec sed -i "s/chrome-extension/mo
 cp -r browser-extensions/chrome/manifest.json.mozilla ${TMP_BUILD_DIR}/manifest.json
 
 # Replace placeholders in the manifest file
+sed -i "s/REPLACE_EXTENSION_BUILD_ID/$EXTENSION_BUILD_ID/" ${TMP_BUILD_DIR}/manifest.json
+
+cat ${TMP_BUILD_DIR}/manifest.json
 
 # Move into the build directory and package everything up
 cd ${TMP_BUILD_DIR}
