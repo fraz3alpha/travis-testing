@@ -1,7 +1,8 @@
 # Initially based on https://jekyllrb.com/docs/continuous-integration/travis-ci/
 
 language: python
-rvm: 3.6
+python:
+  - 3.6
 
 script:
    - ls -lR running-challenges-data/data
